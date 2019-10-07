@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block title %}
+Formulaire Liste Visiteur
+{% endblock %}
+{% block body %}
+    
+    <h3 align="center" > Affichage des différents Visiteurs </h3>
+    
+    <table  style ="border:2px solid black; margin:auto;" align="center">
+        
+            <thead>
+                <tr style ="border:4px solid black;">
+                    <th>   Les biens: </th>
+                </tr>
+            </thead>
+            <tr style ="background-color: #27eade; border:4px solid black;">
+                <td  style ="border:4px solid black;">Id du visiteur </td>
+                <td style ="border:4px solid black;">Nom</td>
+                <td style ="border:4px solid black;">Prenom  </td>
+                <td style ="border:4px solid black;">Adresse </td>
+                <td style ="border:4px solid black;">Telephone  </td>
+
+            </tr>
+            {% for unVisiteur in visiteur %}
+            <tr style ="border:4px solid black;">
+                <td style="background-color: #3441a0; border:4px solid #dc21ae;">{{ unVisiteur.id }}</td>
+                <td style="background-color:#3441a0; border:4px solid #dc21ae;">{{ unVisiteur.getNom }}</td>
+                <td style="background-color:#3441a0; border:4px solid #dc21ae;">{{ unVisiteur.getPrenom }}</td>
+                <td style="background-color:#3441a0; border:4px solid #dc21ae;">{{ unVisiteur.getAdresse }}</td>
+                <td style="background-color:#3441a0; border:4px solid #dc21ae;">{{ unVisiteur.getTelephone }}</td>
+
+                         <td><a href="/visiteur/update/{{ unVisiteur.id }}" class="btn btn-outline-primary">MODIFIER</a></td>
+                        <td><a href="/visiteur/supprimer/{{ unVisiteur.id }}" class="btn btn-outline-danger">SUPPRIMER</a></td>
+            </tr>
+        {% endfor %}
+        
+        
+    </table>
+    
+{% endblock %}{# empty Twig template #}
